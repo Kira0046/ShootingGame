@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //ˆÚ“®
         Vector3 pos = transform.position;
 
         pos.z += 0.05f;
@@ -22,6 +23,15 @@ public class Bullet : MonoBehaviour
         if (pos.z >= 20)
         {
             Destroy(this.gameObject);
+        }
+
+    }
+    //“–‚½‚è”»’è
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            other.GetComponent<Enemy>().Damage();
         }
     }
 }
